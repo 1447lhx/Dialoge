@@ -15,13 +15,12 @@ import android.app.AlertDialog;
 public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.content_main);
         Button button = (Button) findViewById(R.id.buttonTest);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                // Get the layout inflater
                 LayoutInflater inflater = getLayoutInflater();
                 builder.setView(inflater.inflate(R.layout.login_dialoge, null))
                         .setTitle("登录")
@@ -31,12 +30,10 @@ public class MainActivity extends AppCompatActivity {
                                 EditText text_password = (EditText) findViewById(R.id.editTextPwd);
                                 String username = text_username.getText() + "";
                                 String password = text_password.getText() + "";
-
                                 if(username.equals("abc")&&password.equals("123"))
                                     Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
                                 else
                                     Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_LONG).show();
-                                dialog.cancel();
                             }
                         });
 
